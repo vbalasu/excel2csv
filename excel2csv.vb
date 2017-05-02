@@ -16,7 +16,7 @@ Public Module modmain
 	 Console.Writeline (csvfile)
 	 Dim xl As Object
 	 xl = CreateObject("Excel.Application")
-	 ExportToCsv (xl, "c:\wamp\www\vb\inventory.xlsm", "Inventory List", "C3", "C:\wamp\www\vb\inventory.csv")
+	 ExportToCsv (xl, excelfile, sheetname, topleft, csvfile)
 	 Console.Writeline ("Done")
    End Sub
    
@@ -38,9 +38,7 @@ Public Module modmain
 		Dim lastcell As Object
 		lastcell = firstcell.SpecialCells(11)	'xlCellTypeLastCell
     Console.Writeline ("5")
-		xl.Range(firstcell, lastcell).Select        'xlLastCell
-    Console.Writeline ("6")
-        xl.Selection.Copy
+		xl.Range(firstcell, lastcell).Copy        'xlLastCell
     Console.Writeline ("7")
         xl.Workbooks.Add
     Console.Writeline ("8")
